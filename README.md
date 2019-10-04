@@ -1,6 +1,6 @@
 # WalletAndCurrency
 
-## Programming problem: Simulate your wallet and its contents when on a foreign trip.
+### Programming problem: Simulate your wallet and its contents when on a foreign trip.
 
 A. Create a currency class with four attributes - currency note, whole parts and fractional parts and currency coin such that 100 fractional parts equals 1 whole part.
 
@@ -24,7 +24,7 @@ G. Your main should pre-define the 5 different currency types as specified above
 
  
 
-# Things to remember:
+## Things to remember:
 
 Make any relevant assumptions that you may need but state them clearly in your name/comment block at the top. 
 Remember to document your methods adequately as well as any other relevant comments. Also, provide necessary pseudocode in the program in the main.
