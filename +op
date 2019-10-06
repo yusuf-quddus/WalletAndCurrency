@@ -1,8 +1,12 @@
 Currency operator+ (Currency& c1, double d)
 {
+    int i; 
+    double i2;
+    i = d/1;
+    i2 = d - i;
 	Currency c3;
-	c3.wholePart = c1.wholePart + d;
-	c3.fractionalPart = c1.fractionalPart + d;
+	c3.wholePart = c1.wholePart + i;
+	c3.fractionalPart = c1.fractionalPart + (i2*100);
 
 	if (c3.fractionalPart > 100) {
 		c3.wholePart += (c3.fractionalPart / 100);
@@ -11,23 +15,3 @@ Currency operator+ (Currency& c1, double d)
 
 	return c3;
 }
-
-Currency operator+(double d, Currency& c1)
-{
-	Currency c3;
-	c3.wholePart = c1.wholePart + d;
-	c3.fractionalPart = c1.fractionalPart + d;
-
-	if (c3.fractionalPart > 100) {
-		c3.wholePart += (c3.fractionalPart / 100);
-		c3.fractionalPart = c3.fractionalPart % 100;
-	}
-
-	return c3;
-}
-
-
-
-
-	friend Currency operator+ (Currency& c1, double d);
-	friend Currency operator+ (double d, Currency& c1);
