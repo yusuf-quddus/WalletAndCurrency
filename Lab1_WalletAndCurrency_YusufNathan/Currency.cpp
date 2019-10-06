@@ -319,6 +319,12 @@ bool operator <= (Currency& c1, Currency& c2)
 
 
 
-/*
+Currency& Currency::operator= (const Currency &c1) {
+wholePart = this->wholePart;
+fractionalPart = this->fractionalPart;
+currencyCoin = this->currencyCoin;
+currencyNote = this->currencyNote;
 
- */
+return c1;
+}
+ 
