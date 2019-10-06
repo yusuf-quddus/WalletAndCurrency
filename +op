@@ -12,13 +12,6 @@ Currency operator+(Currency& c1, Currency& c2)
     return c3;
 }
 
-// friend Currency operator+ (Currency&, Currency&); 
-
-
-
-
-
-
 Currency operator-(Currency& c1, Currency& c2)
 {
     Currency c3;
@@ -45,6 +38,72 @@ Currency operator-(Currency& c1, Currency& c2)
     return c3;
 }
 
-//friend Currency operator- (Currency&, Currency&);
+bool operator==(Currency& c1, Currency& c2)
+{
+    bool equal;
+    equal = (c1.wholePart == c2.wholePart && c1.fractionalPart == c2.fractionalPart);
+    return equal;
+}
+
+bool operator > (Currency& c1, Currency& c2)
+{
+    if (c1.wholePart > c2.wholePart)
+    return true;
+    
+    else if (c1.wholePart == c2.wholePart && c1.fractionalPart > c2.fractionalPart)
+    return true;
+    
+    else 
+    return false;
+}
+
+bool operator < (Currency& c1, Currency& c2)
+{
+    if (c1.wholePart < c2.wholePart)
+    return true;
+    
+    else if (c1.wholePart == c2.wholePart && c1.fractionalPart < c2.fractionalPart)
+    return true;
+    
+    else 
+    return false;
+}
+
+bool operator >= (Currency& c1, Currency& c2)
+{
+    if (c1.wholePart >= c2.wholePart)
+    return true;
+    
+    else if (c1.wholePart == c2.wholePart && c1.fractionalPart >= c2.fractionalPart)
+    return true;
+    
+    else 
+    return false;
+}
+
+bool operator <= (Currency& c1, Currency& c2)
+{
+    if (c1.wholePart <= c2.wholePart)
+    return true;
+    
+    else if (c1.wholePart == c2.wholePart && c1.fractionalPart <= c2.fractionalPart)
+    return true;
+    
+    else 
+    return false;
+}
 
 
+
+
+
+
+
+	//operator overloading
+	friend Currency operator+ (Currency&, Currency&);
+	friend Currency operator- (Currency&, Currency&);
+	friend bool operator== (Currency&, Currency&);
+	friend bool operator> (Currency&, Currency&);
+	friend bool operator< (Currency&, Currency&);
+	friend bool operator>= (Currency&, Currency&);
+	friend bool operator<= (Currency&, Currency&);
