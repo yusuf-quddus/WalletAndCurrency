@@ -34,11 +34,15 @@ public:
 	*/
 
 	// operator overloads
-	Currency& operator= (const Currency * &c1);
+	// Currency& operator= (const Currency * &c1);
 	friend std::istream& operator>>(std::istream &in, Currency &c);
 	friend std::ostream& operator<<(std::ostream& out, const Currency& c);
 	friend Currency operator+ (Currency&, Currency&);
+	friend Currency operator+ (Currency& c1, double d);
+	friend Currency operator+ (double d, Currency& c1);
 	friend Currency operator- (Currency&, Currency&);
+	friend Currency operator-(double d, Currency& c1);
+	friend Currency operator-(Currency& c1, double d);
 	friend bool operator== (Currency&, Currency&);
 	friend bool operator> (Currency&, Currency&);
 	friend bool operator< (Currency&, Currency&);

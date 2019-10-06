@@ -133,6 +133,46 @@ Currency operator+(Currency& c1, Currency& c2)
 	return c3;
 }
 
+Currency operator+ (Currency& c1, double d)
+{
+	Currency c3;
+	c3.wholePart = 0;
+	c3.fractionalPart = 0;
+	int i;
+	double i2;
+	i = d / 1;
+	i2 = d - i;
+	c3.wholePart = c1.wholePart + i;
+	c3.fractionalPart = c1.fractionalPart + (i2 * 100) + 1;
+
+	if (c3.fractionalPart > 100) {
+		c3.wholePart += (c3.fractionalPart / 100);
+		c3.fractionalPart = c3.fractionalPart % 100;
+	}
+
+	return c3;
+}
+
+Currency operator+(double d, Currency& c1)
+{
+	Currency c3;
+	c3.wholePart = 0;
+	c3.fractionalPart = 0;
+	int i;
+	double i2;
+	i = d / 1;
+	i2 = d - i;
+	c3.wholePart = c1.wholePart + i;
+	c3.fractionalPart = c1.fractionalPart + (i2 * 100) + 1;
+
+	if (c3.fractionalPart > 100) {
+		c3.wholePart += (c3.fractionalPart / 100);
+		c3.fractionalPart = c3.fractionalPart % 100;
+	}
+
+	return c3;
+}
+
 Currency operator-(Currency& c1, Currency& c2)
 {
 	Currency c3;
@@ -145,7 +185,7 @@ Currency operator-(Currency& c1, Currency& c2)
 	}
 
 	// if fraction is negative, make positive
-	if (c3.fractionalPart < 0) {
+	if (c3.fractionalPart < 0 && c3.wholePart >= 1) {
 		c3.wholePart -= 1;
 		c3.fractionalPart += 100;
 	}
@@ -155,6 +195,70 @@ Currency operator-(Currency& c1, Currency& c2)
 		c3.wholePart = 0;
 		c3.fractionalPart = 0;
 	}
+	return c3;
+}
+
+Currency operator-(double d, Currency& c1)
+{
+	Currency c3;
+	c3.wholePart = 0;
+	c3.fractionalPart = 0;
+	int i;
+	double i2;
+	i = d / 1;
+	i2 = d - i;
+	c3.wholePart = i - c1.wholePart;
+	c3.fractionalPart = (i2 * 100) - c1.fractionalPart;
+
+	if (c3.fractionalPart > 100) {
+		c3.wholePart += (c3.fractionalPart / 100);
+		c3.fractionalPart = c3.fractionalPart % 100;
+	}
+
+	// if fraction is negative, make positive
+	if (c3.fractionalPart < 0 && c3.wholePart >= 1) {
+		c3.wholePart -= 1;
+		c3.fractionalPart += 100;
+	}
+
+	// if whole is negative, turn everything to 0.00
+	if (c3.wholePart < 0) {
+		c3.wholePart = 0;
+		c3.fractionalPart = 0;
+	}
+
+	return c3;
+}
+
+Currency operator-(Currency& c1, double d)
+{
+	Currency c3;
+	c3.wholePart = 0;
+	c3.fractionalPart = 0;
+	int i;
+	double i2;
+	i = d / 1;
+	i2 = d - i;
+	c3.wholePart = c1.wholePart - i;
+	c3.fractionalPart = c1.fractionalPart - (i2 * 100);
+
+	if (c3.fractionalPart > 100) {
+		c3.wholePart += (c3.fractionalPart / 100);
+		c3.fractionalPart = c3.fractionalPart % 100;
+	}
+
+	// if fraction is negative, make positive
+	if (c3.fractionalPart < 0 && c3.wholePart >= 1) {
+		c3.wholePart -= 1;
+		c3.fractionalPart += 100;
+	}
+
+	// if whole is negative, turn everything to 0.00
+	if (c3.wholePart < 0) {
+		c3.wholePart = 0;
+		c3.fractionalPart = 0;
+	}
+
 	return c3;
 }
 
@@ -191,7 +295,7 @@ bool operator < (Currency& c1, Currency& c2)
 
 bool operator >= (Currency& c1, Currency& c2)
 {
-	if (c1.wholePart >= c2.wholePart)
+	if (c1.wholePart > c2.wholePart)
 		return true;
 
 	else if (c1.wholePart == c2.wholePart && c1.fractionalPart >= c2.fractionalPart)
@@ -203,7 +307,7 @@ bool operator >= (Currency& c1, Currency& c2)
 
 bool operator <= (Currency& c1, Currency& c2)
 {
-	if (c1.wholePart <= c2.wholePart)
+	if (c1.wholePart < c2.wholePart)
 		return true;
 
 	else if (c1.wholePart == c2.wholePart && c1.fractionalPart <= c2.fractionalPart)
@@ -213,12 +317,8 @@ bool operator <= (Currency& c1, Currency& c2)
 		return false;
 }
 
+
+
 /*
-Currency& Currency::operator= (const Currency * &c1)
-{
-	wholePart = this->wholePart;
-	fractionalPart = this->fractionalPart;
-	currencyCoin = this->currencyCoin;
-	currencyNote = this->currencyNote; 
- }
-*/
+
+ */
