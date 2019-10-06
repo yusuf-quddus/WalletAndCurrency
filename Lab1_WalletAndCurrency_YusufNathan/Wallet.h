@@ -18,7 +18,6 @@ public:
 	void addMoney(int m);
 	void removeMoney(int m);
 
-	Currency& operator= (const Currency &c1);
 
 	//operator
 	int& operator[](int);

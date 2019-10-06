@@ -18,12 +18,3 @@ int& Wallet::operator[](int index)
 	return indexList[index];
 }
 
-Currency& Currency::operator= (const Currency &c1)
-{
-	wholePart = this->wholePart;
-	fractionalPart = this->fractionalPart;
-	currencyCoin = this->currencyCoin;
-	currencyNote = this->currencyNote;
-
-	return c1;
-}
