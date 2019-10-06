@@ -1,7 +1,7 @@
 #pragma once
 
 #include <iostream>
-//#include <string>
+// #include <string>
 
 class Currency {
 private:
@@ -30,6 +30,7 @@ public:
 	friend class Yen;
 	friend class Rupee;
 	friend class Yuan;
+	friend std::ostream& operator<<(std::ostream& out, const Currency& c);
 };
 
 // derived class. how to pass variables in constructor to base?

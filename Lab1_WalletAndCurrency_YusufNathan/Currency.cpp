@@ -1,4 +1,5 @@
 #include <iostream>
+#include <string>
 #include "Currency.h"
 
 // base class
@@ -75,4 +76,11 @@ Rupee::Rupee(int w, int f) : Currency(w, f) {
 Yuan::Yuan(int w, int f) : Currency(w, f) {
 	currencyNote = "Yuan";
 	currencyCoin = "fen";
+}
+
+std::ostream & operator<<(std::ostream&out, const Currency &c)
+{
+	out << c.wholePart << " " << c.currencyCoin << " " << c.fractionalPart 
+		<< " " << c.currencyCoin << std::endl;
+	return out;
 }
