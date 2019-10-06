@@ -12,5 +12,39 @@ Currency operator+(Currency& c1, Currency& c2)
     return c3;
 }
 
-
 // friend Currency operator+ (Currency&, Currency&); 
+
+
+
+
+
+
+Currency operator-(Currency& c1, Currency& c2)
+{
+    Currency c3;
+    c3.wholePart = c1.wholePart - c2.wholePart;
+    c3.fractionalPart = c1.fractionalPart - c2.fractionalPart;
+    
+    if (c3.fractionalPart > 100) {
+		c3.wholePart += (c3.fractionalPart / 100);
+		c3.fractionalPart = c3.fractionalPart % 100;
+	}
+	
+	// if fraction is negative, make positive
+	if (c3.fractionalPart < 0 ) {
+	    c3.wholePart -= 1;
+	    c3.fractionalPart += 100; 
+	}
+	
+	// if whole is negative, turn everything to 0.00
+	if (c3.wholePart < 0 ) {
+        c3.wholePart = 0;
+        c3.fractionalPart = 0;
+	}
+	
+    return c3;
+}
+
+//friend Currency operator- (Currency&, Currency&);
+
+
