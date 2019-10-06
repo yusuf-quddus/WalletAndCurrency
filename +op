@@ -1,10 +1,33 @@
+Currency operator+ (Currency& c1, double d)
+{
+	Currency c3;
+	c3.wholePart = c1.wholePart + d;
+	c3.fractionalPart = c1.fractionalPart + d;
 
-    Bob.setFractionalPart (0);
-    Joe.setFractionalPart (0);
-    BJ.setFractionalPart (0);
-    Bob.setCurrencyNote ("");
-    Joe.setCurrencyNote ("");
-    BJ.setCurrencyNote ("");
-    Bob.setCurrencyCoin ("");
-    Joe.setCurrencyCoin ("");
-    BJ.setCurrencyCoin ("");
+	if (c3.fractionalPart > 100) {
+		c3.wholePart += (c3.fractionalPart / 100);
+		c3.fractionalPart = c3.fractionalPart % 100;
+	}
+
+	return c3;
+}
+
+Currency operator+(double d, Currency& c1)
+{
+	Currency c3;
+	c3.wholePart = c1.wholePart + d;
+	c3.fractionalPart = c1.fractionalPart + d;
+
+	if (c3.fractionalPart > 100) {
+		c3.wholePart += (c3.fractionalPart / 100);
+		c3.fractionalPart = c3.fractionalPart % 100;
+	}
+
+	return c3;
+}
+
+
+
+
+	friend Currency operator+ (Currency& c1, double d);
+	friend Currency operator+ (double d, Currency& c1);
