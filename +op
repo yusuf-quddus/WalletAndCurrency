@@ -1,13 +1,16 @@
-Currency operator+(Currency& c)
+Currency operator+(Currency& c1, Currency& c2)
 {
-    Currency c2;
-    c2.wholePart = this->wholePart + c.wholePart;
-    c2.fractionalPart = this->fractionalPart + c.fractionalPart;
+    Currency c3;
+    c3.wholePart = c1.wholePart + c2.wholePart;
+    c3.fractionalPart = c1.fractionalPart + c2.fractionalPart;
     
-    if (c2.fractionalPart > 100) {
-		c2.wholePart += (c2.fractionalPart / 100);
-		c2.fractionalPart = c2.fractionalPart % 100;
+    if (c3.fractionalPart > 100) {
+		c3.wholePart += (c3.fractionalPart / 100);
+		c3.fractionalPart = c3.fractionalPart % 100;
 	}
     
-    return c2;
+    return c3;
 }
+
+
+// friend Currency operator+ (Currency&, Currency&); 
