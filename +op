@@ -1,0 +1,13 @@
+Currency operator+(Currency& c)
+{
+    Currency c2;
+    c2.wholePart = this->wholePart + c.wholePart;
+    c2.fractionalPart = this->fractionalPart + c.fractionalPart;
+    
+    if (c2.fractionalPart > 100) {
+		c2.wholePart += (c2.fractionalPart / 100);
+		c2.fractionalPart = c2.fractionalPart % 100;
+	}
+    
+    return c2;
+}
