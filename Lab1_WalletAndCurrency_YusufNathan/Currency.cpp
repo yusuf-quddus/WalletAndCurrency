@@ -112,9 +112,9 @@ std::ostream & operator<<(std::ostream&out, const Currency &c)
 
 std::istream & operator>>(std::istream &in, Currency &c)
 {
-	std::cout << "Enter Real Part ";
+	std::cout << "Enter Note Amount ";
 	in >> c.wholePart;
-	std::cout << "Enter Imagenory Part ";
+	std::cout << "Enter Coin Amount ";
 	in >> c.fractionalPart;
 	return in;
 }
@@ -213,10 +213,12 @@ bool operator <= (Currency& c1, Currency& c2)
 		return false;
 }
 
+/*
 Currency& Currency::operator= (const Currency * &c1)
 {
 	wholePart = this->wholePart;
 	fractionalPart = this->fractionalPart;
 	currencyCoin = this->currencyCoin;
 	currencyNote = this->currencyNote; 
-}
+ }
+*/
