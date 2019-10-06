@@ -16,7 +16,7 @@ std::string Currency::getCurrencyNote() {
 }
 
 std::string Currency::getCurrencyCoin() {
-	return currencyCoin;
+	return currencyCoin;   
 }
 
 int Currency::getWholePart() {
@@ -49,7 +49,7 @@ void Currency::setFractionalPart(int f) {
 
 // derived 
 
-Dollar::Dollar(int w, int f) {
+Dollar::Dollar(int w, int f) : Currency(w, f){
 	currencyNote = "Dollar";
 	currencyCoin = "cent";
 
@@ -57,22 +57,22 @@ Dollar::Dollar(int w, int f) {
 //	setCurrencyCoin("Cent");
 }
 
-Euro::Euro(int w, int f) {
+Euro::Euro(int w, int f) : Currency(w, f) {
 	currencyNote = "Euro";
 	currencyCoin = "cent";
 }
 
-Yen::Yen(int w, int f) {
+Yen::Yen(int w, int f) : Currency(w, f) {
 	currencyNote = "Yen";
 	currencyCoin = "sen";
 }
 
-Rupee::Rupee(int w, int f) {
+Rupee::Rupee(int w, int f) : Currency(w, f) {
 	currencyNote = "Rupee";
 	currencyCoin = "paise";
 }
 
-Yuan::Yuan(int w, int f) {
+Yuan::Yuan(int w, int f) : Currency(w, f) {
 	currencyNote = "Yuan";
 	currencyCoin = "fen";
 }

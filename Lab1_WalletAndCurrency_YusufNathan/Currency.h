@@ -34,21 +34,22 @@ public:
 
 // derived class. how to pass variables in constructor to base?
 class Dollar : public Currency {
-	Dollar();
+	Dollar(int, int);
+
 };
 
 class Euro : public Currency {
-	Euro();
+	Euro(int, int);
 };
 
 class Yen : public Currency {
-	Yen();
+	Yen(int, int);
 };
 
 class Rupee : public Currency {
-	Rupee();
+	Rupee(int, int);
 };
 
 class Yuan : public Currency {
-	Yuan();
+	Yuan(int, int);
 };
