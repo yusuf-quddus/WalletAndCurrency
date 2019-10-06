@@ -10,3 +10,8 @@ Wallet::Wallet() {
 	money[3] = new Rupee;
 	money[4] = new Yuan;
 }
+
+int& Wallet::operator[](int index)
+{
+	return indexList[index];
+}

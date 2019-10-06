@@ -5,8 +5,9 @@
 class Wallet{
 protected:
 	int numCurrency;
+	int indexList[5];
 	bool currencyExists;
-	int NUM_CURRENCIES = 5;
+	const static int NUM_CURRENCIES = 5;
 
 	// array of Currency Objects?
 	Currency money[NUM_CURRENCIES];
@@ -16,5 +17,10 @@ public:
 	void isCurrency();
 	void addMoney(int m);
 	void removeMoney(int m);
+
+
+
+	//operator
+	int& operator[](int);
 
 };

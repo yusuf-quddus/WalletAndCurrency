@@ -212,3 +212,11 @@ bool operator <= (Currency& c1, Currency& c2)
 	else
 		return false;
 }
+
+Currency& Currency::operator= (const Currency * &c1)
+{
+	wholePart = this->wholePart;
+	fractionalPart = this->fractionalPart;
+	currencyCoin = this->currencyCoin;
+	currencyNote = this->currencyNote; 
+}
