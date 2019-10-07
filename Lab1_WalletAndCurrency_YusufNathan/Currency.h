@@ -18,7 +18,7 @@ public:
 	Currency(int, int);
 
 	// getters
-	int getWholePart();
+	virtual int getWholePart();
 	int getFractionalPart();
 	std::string getCurrencyNote();
 	std::string getCurrencyCoin();

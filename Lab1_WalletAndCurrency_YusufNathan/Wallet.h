@@ -1,5 +1,6 @@
 #pragma once
 #include <iostream>
+#include <vector>
 #include "Currency.h"
 
 class Wallet{
@@ -10,7 +11,7 @@ protected:
 	bool currencyExists;
 
 	const static int NUM_CURRENCIES = 5;
-	Currency money[NUM_CURRENCIES];
+	Currency **money;
 	
 public:
 
