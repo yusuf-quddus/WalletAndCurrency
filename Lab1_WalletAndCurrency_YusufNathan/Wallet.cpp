@@ -3,24 +3,13 @@
 #include "Currency.h"
 #include "Wallet.h"	
 
+// constructor
 Wallet::Wallet() {
 	money[0] = new Dollar;
 	money[1] = new Euro;
 	money[2] = new Yen;
 	money[3] = new Rupee;
 	money[4] = new Yuan;
-
-	//delete money;
-}
-
-Currency Wallet::operator[](int index)
-{
-	if (index >= 5)
-	{
-		std::cout << "Array index out of bound, exiting" << std::endl;
-		exit(0);
-	}
-	return money[index];
 }
 
 bool Wallet::hasCurrency(std::string name) {
@@ -61,6 +50,18 @@ void Wallet::removeMoney(std::string name, double m) {
 	money[j] = money[j] - m;
 }
 
+// operator overloading
+Currency Wallet::operator[](int index)
+{
+	if (index >= 5)
+	{
+		std::cout << "Array index out of bound, exiting" << std::endl;
+		exit(0);
+	}
+	return money[index];
+}
+
+// destructor
 Wallet::~Wallet() {
 	for (int i = 0; i <= NUM_CURRENCIES; i++) {
 		delete money[i];

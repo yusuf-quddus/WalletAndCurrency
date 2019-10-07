@@ -4,44 +4,56 @@
 
 // base class
 Currency::Currency() {}
-Currency::Currency(int w, int f) {
+Currency::Currency(int w, int f) 
+{
 	wholePart = w;
 	fractionalPart = f;
+
+	// adds excess fractional part to whole part
 	if (fractionalPart > 100) {
 		wholePart += (fractionalPart / 100);
 		fractionalPart = fractionalPart % 100;
 	}
 }
 
-std::string Currency::getCurrencyNote() {
+std::string Currency::getCurrencyNote() 
+{
 	return currencyNote;
 }
 
-std::string Currency::getCurrencyCoin() {
+std::string Currency::getCurrencyCoin() 
+{
 	return currencyCoin;   
 }
 
-int Currency::getWholePart() {
+int Currency::getWholePart() 
+{
 	return wholePart;
 }
 
-int Currency::getFractionalPart() {
+int Currency::getFractionalPart() 
+{
 	return fractionalPart;
 }
 
-void Currency::setCurrencyNote(std::string n) {
+void Currency::setCurrencyNote(std::string n) 
+{
 	currencyNote = n;
 }
 
-void Currency::setCurrencyCoin(std::string c) {
+void Currency::setCurrencyCoin(std::string c) 
+{
 	currencyCoin = c;
 }
 
-void Currency::setWholePart(int w) {
+void Currency::setWholePart(int w) 
+{
 	wholePart = w;
 }
 
-void Currency::setFractionalPart(int f) {
+void Currency::setFractionalPart(int f) 
+{
+	// adds excess fractional part to whole part
 	if (fractionalPart > 100) {
 		wholePart += (fractionalPart / 100);
 		fractionalPart = fractionalPart % 100;
@@ -49,60 +61,74 @@ void Currency::setFractionalPart(int f) {
 	fractionalPart = f;
 }
 
-// derived 
-Dollar::Dollar() {
+// Derived Classes: 
+
+// Dollar class
+Dollar::Dollar()
+{
 	currencyNote = "Dollar";
 	currencyCoin = "cent";
 }
 
-Dollar::Dollar(int w, int f) : Currency(w, f){
+Dollar::Dollar(int w, int f) : Currency(w, f) 
+{
 	currencyNote = "Dollar";
 	currencyCoin = "cent";
-
-//	setCurrencyNote("Dollar");
-//	setCurrencyCoin("Cent");
 }
 
-Euro::Euro() {
+// Euro Class
+Euro::Euro() 
+{
 	currencyNote = "Euro";
 	currencyCoin = "cent";
 }
 
-Euro::Euro(int w, int f) : Currency(w, f) {
+Euro::Euro(int w, int f) : Currency(w, f) 
+{
 	currencyNote = "Euro";
 	currencyCoin = "cent";
 }
 
-Yen::Yen() {
+// Yen Class
+Yen::Yen() 
+{
 	currencyNote = "Yen";
 	currencyCoin = "sen";
 }
 
-Yen::Yen(int w, int f) : Currency(w, f) {
+Yen::Yen(int w, int f) : Currency(w, f) 
+{
 	currencyNote = "Yen";
 	currencyCoin = "sen";
 }
 
-Rupee::Rupee() {
+// Rupee Class
+Rupee::Rupee() 
+{
 	currencyNote = "Rupee";
 	currencyCoin = "paise";
 }
 
-Rupee::Rupee(int w, int f) : Currency(w, f) {
+Rupee::Rupee(int w, int f) : Currency(w, f) 
+{
 	currencyNote = "Rupee";
 	currencyCoin = "paise";
 }
 
-Yuan::Yuan() {
+// Yuan Class
+Yuan::Yuan() 
+{
 	currencyNote = "Yuan";
 	currencyCoin = "fen";
 }
 
-Yuan::Yuan(int w, int f) : Currency(w, f) {
+Yuan::Yuan(int w, int f) : Currency(w, f) 
+{
 	currencyNote = "Yuan";
 	currencyCoin = "fen";
 }
 
+// operator overloading
 std::ostream & operator<<(std::ostream&out, const Currency &c)
 {
 	out << c.wholePart << " " << c.currencyNote << " " << c.fractionalPart 
@@ -125,6 +151,7 @@ Currency operator+(Currency& c1, Currency& c2)
 	c3.wholePart = c1.wholePart + c2.wholePart;
 	c3.fractionalPart = c1.fractionalPart + c2.fractionalPart;
 
+	// adds excess fractional part to whole part
 	if (c3.fractionalPart > 100) {
 		c3.wholePart += (c3.fractionalPart / 100);
 		c3.fractionalPart = c3.fractionalPart % 100;
@@ -135,6 +162,7 @@ Currency operator+(Currency& c1, Currency& c2)
 
 Currency operator+ (Currency& c1, double d)
 {
+	// seperate whole and fractional part
 	Currency c3;
 	c3.wholePart = 0;
 	c3.fractionalPart = 0;
@@ -145,6 +173,7 @@ Currency operator+ (Currency& c1, double d)
 	c3.wholePart = c1.wholePart + i;
 	c3.fractionalPart = c1.fractionalPart + (i2 * 100) + 1;
 
+	// adds excess fractional part to whole part
 	if (c3.fractionalPart > 100) {
 		c3.wholePart += (c3.fractionalPart / 100);
 		c3.fractionalPart = c3.fractionalPart % 100;
@@ -155,6 +184,7 @@ Currency operator+ (Currency& c1, double d)
 
 Currency operator+(double d, Currency& c1)
 {
+	// seperate whole and fractional part
 	Currency c3;
 	c3.wholePart = 0;
 	c3.fractionalPart = 0;
@@ -165,6 +195,7 @@ Currency operator+(double d, Currency& c1)
 	c3.wholePart = c1.wholePart + i;
 	c3.fractionalPart = c1.fractionalPart + (i2 * 100) + 1;
 
+	// adds excess fractional part to whole part
 	if (c3.fractionalPart > 100) {
 		c3.wholePart += (c3.fractionalPart / 100);
 		c3.fractionalPart = c3.fractionalPart % 100;
@@ -179,6 +210,7 @@ Currency operator-(Currency& c1, Currency& c2)
 	c3.wholePart = c1.wholePart - c2.wholePart;
 	c3.fractionalPart = c1.fractionalPart - c2.fractionalPart;
 
+	// adds excess fractional part to whole part
 	if (c3.fractionalPart > 100) {
 		c3.wholePart += (c3.fractionalPart / 100);
 		c3.fractionalPart = c3.fractionalPart % 100;
@@ -200,6 +232,7 @@ Currency operator-(Currency& c1, Currency& c2)
 
 Currency operator-(double d, Currency& c1)
 {
+	// seperate whole and fractional part
 	Currency c3;
 	c3.wholePart = 0;
 	c3.fractionalPart = 0;
@@ -210,6 +243,7 @@ Currency operator-(double d, Currency& c1)
 	c3.wholePart = i - c1.wholePart;
 	c3.fractionalPart = (i2 * 100) - c1.fractionalPart;
 
+	// adds excess fractional part to whole part
 	if (c3.fractionalPart > 100) {
 		c3.wholePart += (c3.fractionalPart / 100);
 		c3.fractionalPart = c3.fractionalPart % 100;
@@ -232,6 +266,7 @@ Currency operator-(double d, Currency& c1)
 
 Currency operator-(Currency& c1, double d)
 {
+	// seperate whole and fractional part
 	Currency c3;
 	c3.wholePart = 0;
 	c3.fractionalPart = 0;
@@ -242,6 +277,7 @@ Currency operator-(Currency& c1, double d)
 	c3.wholePart = c1.wholePart - i;
 	c3.fractionalPart = c1.fractionalPart - (i2 * 100);
 
+	// adds excess fractional part to whole part
 	if (c3.fractionalPart > 100) {
 		c3.wholePart += (c3.fractionalPart / 100);
 		c3.fractionalPart = c3.fractionalPart % 100;
