@@ -105,7 +105,7 @@ Yuan::Yuan(int w, int f) : Currency(w, f) {
 
 std::ostream & operator<<(std::ostream&out, const Currency &c)
 {
-	out << c.wholePart << " " << c.currencyCoin << " " << c.fractionalPart 
+	out << c.wholePart << " " << c.currencyNote << " " << c.fractionalPart 
 		<< " " << c.currencyCoin << std::endl;
 	return out;
 }
@@ -317,11 +317,11 @@ bool operator <= (Currency& c1, Currency& c2)
 		return false;
 }
 
+void Currency::operator= (const Currency* c1)
+{
+	wholePart = c1->wholePart;
+	fractionalPart = c1->fractionalPart;
+	currencyCoin = c1->currencyCoin;
+	currencyNote = c1->currencyNote;
 
-
-Currency& Currency::operator= (const Currency &c1) {
-	wholePart = this->wholePart;
-	fractionalPart = this->fractionalPart;
-	currencyCoin = this->currencyCoin;
-	currencyNote = this->currencyNote;
 }

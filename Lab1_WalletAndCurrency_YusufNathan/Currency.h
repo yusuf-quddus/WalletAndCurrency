@@ -34,7 +34,8 @@ public:
 	*/
 
 	// operator overloads
-	Currency& operator= (const Currency * &c1);
+	// test comparison and  output operator overloading
+	void operator= (const Currency* c1);
 	friend std::istream& operator>>(std::istream &in, Currency &c);
 	friend std::ostream& operator<<(std::ostream& out, const Currency& c);
 	friend Currency operator+ (Currency&, Currency&);

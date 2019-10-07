@@ -14,11 +14,14 @@ protected:
 
 public:
 	Wallet();
-	void isCurrency();
-	void addMoney(int m);
-	void removeMoney(int m);
 
+	int numCurrencies();
+	bool hasCurrency(std::string);
+	void addMoney(std::string, double);
+	void removeMoney(std::string, double);
+	Currency operator[](int);
 
+	~Wallet();
 	//operator
-	int& operator[](int);
+	
 };
