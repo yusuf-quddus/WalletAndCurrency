@@ -36,6 +36,7 @@ int main()
 		{
 			do
 			{
+				// add money to currencies
 				cout << "Choose which Currency you would like to ADD: " << endl;
 				cout << "1. Dollar" << endl;
 				cout << "2. Euro" << endl;
@@ -47,7 +48,7 @@ int main()
 				if (choice[1] == 1)
 				{
 					cout << "Type in the amount you want to add to your wallet: " << endl;
-					//cin 
+					//cin
 				}
 				else if (choice[1] == 2)
 				{
@@ -77,6 +78,7 @@ int main()
 		}
 		else if (choice[0] == 2)
 		{
+			// subtract money from currencies
 			do
 			{
 				cout << "Choose which Currency you would like to SUBTRACT: " << endl;
@@ -120,6 +122,7 @@ int main()
 		}
 		else if (choice[0] == 3)
 		{
+			// display currency
 			do
 			{
 				cout << "Choose what you would like to DISPLAY: " << endl;
@@ -163,6 +166,7 @@ int main()
 		}
 		else if (choice[0] == 4)
 		{
+			// empty currency
 			do
 			{
 				cout << "Choose what you would like to EMPTY: " << endl;
@@ -206,6 +210,7 @@ int main()
 		}
 		else if (choice[0] == 5)
 		{
+			// exit proram
 			cout << "Thank you for using the program" << endl;
 			loop[0] = 0;
 		}

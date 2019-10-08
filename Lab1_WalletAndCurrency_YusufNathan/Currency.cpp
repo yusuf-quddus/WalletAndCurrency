@@ -2,7 +2,8 @@
 #include <string>
 #include "Currency.h"
 
-// base class
+// base class:
+// constructors
 Currency::Currency() {}
 Currency::Currency(int w, int f) 
 {
@@ -10,12 +11,13 @@ Currency::Currency(int w, int f)
 	fractionalPart = f;
 
 	// adds excess fractional part to whole part
-	if (fractionalPart > 100) {
+	if (f > 100) {
 		wholePart += (fractionalPart / 100);
 		fractionalPart = fractionalPart % 100;
 	}
 }
 
+// member function
 std::string Currency::getCurrencyNote() 
 {
 	return currencyNote;
@@ -54,7 +56,7 @@ void Currency::setWholePart(int w)
 void Currency::setFractionalPart(int f) 
 {
 	// adds excess fractional part to whole part
-	if (fractionalPart > 100) {
+	if (f > 100) {
 		wholePart += (fractionalPart / 100);
 		fractionalPart = fractionalPart % 100;
 	}
@@ -62,7 +64,6 @@ void Currency::setFractionalPart(int f)
 }
 
 // Derived Classes: 
-
 // Dollar class
 Dollar::Dollar()
 {
@@ -353,11 +354,10 @@ bool operator <= (Currency& c1, Currency& c2)
 		return false;
 }
 
-void Currency::operator= (const Currency* c1)
+void Currency::operator = (const Currency* c1)
 {
 	wholePart = c1->wholePart;
 	fractionalPart = c1->fractionalPart;
 	currencyCoin = c1->currencyCoin;
 	currencyNote = c1->currencyNote;
-
 }

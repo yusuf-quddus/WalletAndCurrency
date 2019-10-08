@@ -1,6 +1,6 @@
 #pragma once
+
 #include <iostream>
-#include <vector>
 #include "Currency.h"
 
 class Wallet{
@@ -11,13 +11,14 @@ protected:
 	bool currencyExists;
 
 	const static int NUM_CURRENCIES = 5;
-	Currency **money;
+	Currency *money[5];
 	
 public:
 
 	// Constructor
 	Wallet();
 
+	// member functions
 	int numCurrencies();
 	bool hasCurrency(std::string);
 	void addMoney(std::string, double);
