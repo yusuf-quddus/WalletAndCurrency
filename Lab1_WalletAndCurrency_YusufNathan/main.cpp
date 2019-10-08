@@ -23,7 +23,6 @@ int main()
 		cout << "Please enter the amount of money you have in your wallet:" << endl;
 		cout << "Dollar:" << endl;
 		cin >> gucci[0];
-/*
 		cout << "Euro:" << endl;
 		cin >> gucci[1];
 		cout << "Yen:" << endl;
@@ -32,7 +31,6 @@ int main()
 		cin >> gucci[3];
 		cout << "Yuan:" << endl;
 		cin >> gucci[4];
-*/
 	do
 	{
 	    amount = 0;
