@@ -44,15 +44,14 @@ void Wallet::addMoney(std::string name, double m) {
 }
 
 void Wallet::removeMoney(std::string name, double m) {
-	if (hasCurrency) {
-		int j = 0;
-		while (name != money[j]->getCurrencyNote()) {
-			j++;
-		}
-
-		*money[j] = *money[j] - m;
+	int j = 0;
+	while (name != money[j]->getCurrencyNote()) {
+		j++;
 	}
-	std::cout << "Wallet does not have this currency!" << std::endl;
+	if(hasCurrency(money[j]->getCurrencyNote()))
+		*money[j] = *money[j] - m;
+	else 
+		std::cout << "Wallet does not have this currency!" << std::endl;
 }
 
 // operator overloading

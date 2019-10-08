@@ -11,7 +11,7 @@ protected:
 	bool currencyExists;
 
 	const static int NUM_CURRENCIES = 5;
-	Currency *money[5];
+	Currency *money[NUM_CURRENCIES];
 	
 public:
 

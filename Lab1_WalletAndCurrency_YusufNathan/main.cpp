@@ -12,6 +12,7 @@ using namespace std;
 
 int main()
 {
+	/*
 	int choice[5],
 		loop[5];
 	do
@@ -220,6 +221,28 @@ int main()
 		}
 	} while (loop[0]);
 
+	*/
+
+	Wallet dog;
+	if (dog.hasCurrency("Dollar"))
+		cout << "yes there is dollar";
+	else
+		cout << "no" << endl;
+	cout << dog.numCurrencies() << endl;
+	dog.addMoney("Dollar", 5.6);
+	cout << dog[0] << endl;
+
+	dog.removeMoney(dog[0].getCurrencyNote(), 1.1);
+	dog.removeMoney("Yen", 1.1);
+	if (dog.hasCurrency("Dollar"))
+		cout << "yes there is dollar" << endl;
+	else
+		cout << "no" << endl;
+	cout << dog.numCurrencies() << endl;
+
+	cout << "hello" << endl;
+	int num;
+	cin >> num;
 	system("pause");
 	return 0;
 }
