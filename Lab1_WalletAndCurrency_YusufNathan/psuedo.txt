@@ -23,6 +23,6 @@ If the user types 4 (empty):
 If the user types 5 (if empty):
     Prompts the user to what currency they would like to check. After the user makes a choice, the program will tell the user
     if their chosen currency is empty or not. 
-If the user types 6 (Exit):
+If the user types 6 (exit):
     The program will exit and thank the user for using the program.
 */
