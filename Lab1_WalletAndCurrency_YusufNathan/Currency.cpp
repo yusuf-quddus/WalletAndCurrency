@@ -140,6 +140,10 @@ std::istream & operator>>(std::istream&in, Currency& c)
 	in >> c.wholePart;
 	std::cout << "Enter Coin Amount ";
 	in >> c.fractionalPart;
+	if (c.fractionalPart > 100) {
+		c.wholePart += (c.fractionalPart / 100);
+		c.fractionalPart = c.fractionalPart % 100;
+	}
 	return in;
 }
 

@@ -5,8 +5,9 @@
 
 using namespace std;
 void welcome();
-int inputParser(double &amount, int choice[]);
 bool notEmpty(int index, Wallet &gucci);
+int inputParser(double &amount, int choice[]);
+
 
 int main()
 {
@@ -184,7 +185,7 @@ int main()
 			// display currency
 			do
 			{
-				cout << "\n\n===============================================\n";
+				cout << "\n\n";
 				cout << "Choose what you would like to DISPLAY: " << endl;
 				cout << "1. Dollar" << endl;
 				cout << "2. Euro" << endl;
@@ -194,7 +195,7 @@ int main()
 				cout << "6. Your entire wallet" << endl;
 				cout << "7. Back" << endl;
 				cin >> choice[1];
-				cout << "\n===============================================\n\n";
+				cout << "\n\n";
 
 				if (choice[1] == 1)
 				{
@@ -259,6 +260,7 @@ int main()
 			// empty currency
 			do
 			{
+				cout << "\n\n";
 				cout << "Choose what you would like to EMPTY: " << endl;
 				cout << "1. Dollar" << endl;
 				cout << "2. Euro" << endl;
@@ -268,11 +270,12 @@ int main()
 				cout << "6. Your entire wallet" << endl;
 				cout << "7. Back" << endl;
 				cin >> choice[1];
+				cout << "\n\n";
+
 				if (choice[1] == 1)
 				{
-					amount = gucci[0].getWholePart() + gucci[0].getFractionalPart();
 					cout << gucci[0] << "has been subtracted from your wallet." << endl << endl;
-					gucci.removeMoney(gucci[0].getCurrencyNote(), amount);
+					gucci.emptyCurrency(gucci[0].getCurrencyNote());
 					cout << "Your currency of " << gucci[0].getCurrencyNote() << " now shows ";
 					cout << gucci[0] << endl;
 
@@ -283,9 +286,8 @@ int main()
 				}
 				else if (choice[1] == 2)
 				{
-					amount = gucci[1].getWholePart() + gucci[1].getFractionalPart();
 					cout << gucci[1] << "has been subtracted from your wallet." << endl << endl;
-					gucci.removeMoney(gucci[1].getCurrencyNote(), amount);
+					gucci.emptyCurrency(gucci[1].getCurrencyNote());
 					cout << "Your currency of " << gucci[1].getCurrencyNote() << " now shows ";
 					cout << gucci[1] << endl;
 
@@ -297,9 +299,8 @@ int main()
 				}
 				else if (choice[1] == 3)
 				{
-					amount = gucci[2].getWholePart() + gucci[2].getFractionalPart();
 					cout << gucci[2] << "has been subtracted from your wallet." << endl << endl;
-					gucci.removeMoney(gucci[2].getCurrencyNote(), amount);
+					gucci.emptyCurrency(gucci[2].getCurrencyNote());
 					cout << "Your currency of " << gucci[2].getCurrencyNote() << " now shows ";
 					cout << gucci[2] << endl;
 
@@ -311,10 +312,9 @@ int main()
 				}
 				else if (choice[1] == 4)
 				{
-					amount = gucci[3].getWholePart() + gucci[3].getFractionalPart();
 					cout << gucci[3] << "has been subtracted from your wallet." << endl << endl;
-					gucci.removeMoney(gucci[3].getCurrencyNote(), amount);
-					cout << "Your currency of " << gucci[3].getCurrencyNote() << " now shows ";
+					gucci.emptyCurrency(gucci[3].getCurrencyNote());
+					cout << "Your currency of " << gucci[0].getCurrencyNote() << " now shows ";
 					cout << gucci[3] << endl;
 
 					cout << "Press enter to continue. " << endl;
@@ -325,9 +325,8 @@ int main()
 				}
 				else if (choice[1] == 5)
 				{
-					amount = gucci[4].getWholePart() + gucci[4].getFractionalPart();
+					gucci.emptyCurrency(gucci[4].getCurrencyNote());
 					cout << gucci[4] << "has been subtracted from your wallet." << endl << endl;
-					gucci.removeMoney(gucci[4].getCurrencyNote(), amount);
 					cout << "Your currency of " << gucci[4].getCurrencyNote() << " now shows ";
 					cout << gucci[4] << endl;
 
@@ -339,10 +338,11 @@ int main()
 				else if (choice[1] == 6)
 				{
 					double amount[5];
+					cout << "\n";
 					for (int i = 0; i < 5; i++) {
-						cout << gucci[i].getWholePart() << "." << gucci[i].getFractionalPart() << " " << gucci[i].getCurrencyNote() <<" has been subtracted from your wallet" << endl;
+						cout << gucci[i].getWholePart() << "." << gucci[i].getFractionalPart() << " " << gucci[i].getCurrencyNote() <<" has been subtracted from your wallet\n" << endl;
 					}
-
+	
 					gucci.emptyWallet();
 	
 					cout << "Your currency of " << gucci[0].getCurrencyNote() << " now shows ";
@@ -356,7 +356,7 @@ int main()
 					cout << "Your currency of " << gucci[4].getCurrencyNote() << " now shows ";
 					cout << gucci[4] << endl;
 
-					cout << "Press enter to continue. " << endl;
+					cout << "\nPress enter to continue. " << endl;
 					cin.ignore();
 					cin.get();
 					loop[1] = 0;
@@ -372,6 +372,7 @@ int main()
 			// check if has currency
 			do
 			{
+				cout << "\n\n";
 				cout << "Choose which Currency you would like to CHECK: " << endl;
 				cout << "1. Dollar" << endl;
 				cout << "2. Euro" << endl;
@@ -380,6 +381,8 @@ int main()
 				cout << "5. Yuan" << endl;
 				cout << "6. Back" << endl;
 				cin >> choice[1];
+				cout << "\n\n";
+
 				if (choice[1] == 1)
 				{
 					hasMoney = gucci.hasCurrency(gucci[0].getCurrencyNote());
@@ -469,7 +472,7 @@ Welcome function:
 presents welcome message to user
 ******************************************************************/
 void welcome() {
-	cout << "=========================================================\n\n";
+	cout << "=========================================================\n";
 	cout << "Welcome " << endl;
 	cout << "=========================================================\n"<< endl;
 }
