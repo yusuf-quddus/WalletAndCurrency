@@ -1,14 +1,36 @@
 #pragma once
+
 #include <iostream>
+#include "Currency.h"
 
 class Wallet{
-private:
-	int numCurrency;
-	bool currencyExists;
-	// array of Currency Objects?
-public:
-	void isCurrency();
-	void addMoney(int m);
-	void removeMoney(int m);
+protected:
 
+	int numCurrency;
+	int indexList[5];
+	bool currencyExists;
+
+	const static int NUM_CURRENCIES = 5;
+	Currency *money[NUM_CURRENCIES];
+	
+public:
+
+	// Constructor
+	Wallet();
+
+	// member functions
+	int numCurrencies();
+	bool hasCurrency(std::string);
+	void addMoney(std::string, double);
+	void removeMoney(std::string, double);
+
+	// operator overloading
+	Currency& operator[](int);
+    
+
+
+
+
+	// Destructor
+	virtual ~Wallet();
 };
