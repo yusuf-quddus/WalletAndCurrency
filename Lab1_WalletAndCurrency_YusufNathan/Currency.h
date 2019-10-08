@@ -42,13 +42,13 @@ public:
 	friend Currency operator-(double d, Currency& c1);
 	friend Currency operator+ (Currency& c1, double d);
 	friend Currency operator+ (double d, Currency& c1);
-	friend std::istream& operator>> (std::istream &in, Currency &c);
+	friend std::istream& operator>> (std::istream& in, Currency& c);
 	friend std::ostream& operator<< (std::ostream& out, const Currency& c);
 };
 
 // Derived Classes:
 class Dollar : public Currency {
-public:	
+public:
 	Dollar();
 	Dollar(int, int);
 };

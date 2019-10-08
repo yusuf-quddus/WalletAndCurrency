@@ -4,13 +4,13 @@
 #include "Wallet.h"	
 
 // constructor
-Wallet::Wallet() 
+Wallet::Wallet()
 {
 	money[0] = new Dollar;
 	money[1] = new Euro;
 	money[2] = new Yen;
 	money[3] = new Rupee;
-	money[4] = new Yuan; 
+	money[4] = new Yuan;
 }
 
 // member functions
@@ -35,6 +35,30 @@ int Wallet::numCurrencies() {
 	return counter;
 }
 
+bool Wallet::isEmpty() {
+	for (int i = 0; i < NUM_CURRENCIES; i++) {
+		if (money[i]->getWholePart() > 0 || money[i]->getFractionalPart() > 0)
+			return 0;
+	}
+	return 1;
+}
+
+void Wallet::emptyWallet() {
+	for (int i = 0; i < NUM_CURRENCIES; i++) {
+		money[i]->setWholePart(0);
+		money[i]->setFractionalPart(0);
+	}
+}
+
+void Wallet::emptyCurrency(std::string name) {
+	for (int i = 0; i < NUM_CURRENCIES; i++) {
+		if (name == money[i]->getCurrencyNote()) {
+			money[i]->setWholePart(0);
+			money[i]->setFractionalPart(0);
+		}
+	}
+}
+
 void Wallet::addMoney(std::string name, double m) {
 	int j = 0;
 	while (name != money[j]->getCurrencyNote()) {
@@ -48,14 +72,14 @@ void Wallet::removeMoney(std::string name, double m) {
 	while (name != money[j]->getCurrencyNote()) {
 		j++;
 	}
-	if(hasCurrency(money[j]->getCurrencyNote()))
+	if (hasCurrency(money[j]->getCurrencyNote()))
 		*money[j] = *money[j] - m;
-	else 
+	else
 		std::cout << "Wallet does not have this currency!" << std::endl;
 }
 
 // operator overloading
-Currency Wallet::operator[](int index)
+Currency& Wallet::operator[](int index)
 {
 	if (index >= 5)
 	{
@@ -71,6 +95,3 @@ Wallet::~Wallet() {
 		delete money[i];
 	}
 }
-
-
-
