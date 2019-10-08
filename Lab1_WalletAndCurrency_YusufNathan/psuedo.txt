@@ -18,7 +18,8 @@ If the user types 3 (display):
     Prompts the user to what currency they would like to display. They can also display their entire wallet. After the user 
     makes a choice, the program will print the information based on what they chose.
 If the user types 4 (empty):
-
+    Prompts the user to what currency they would like to empty. They can also empty their entire walley. After the user 
+    majes a choicem the program will empty the information chose and print what was emptied from their wallet.
 If the user types 5 (if empty):
     Prompts the user to what currency they would like to check. After the user makes a choice, the program will tell the user
     if their chosen currency is empty or not. 
