@@ -4,12 +4,9 @@
 
 // base class:
 // constructors
-Currency::Currency() {}
-Currency::Currency(int w, int f) 
+Currency::Currency() : wholePart(0), fractionalPart(0), currencyNote(" "), currencyCoin(" ") {}
+Currency::Currency(int w, int f) : wholePart(w), fractionalPart(f), currencyNote(" "), currencyCoin(" ")
 {
-	wholePart = w;
-	fractionalPart = f;
-
 	// adds excess fractional part to whole part
 	if (f > 100) {
 		wholePart += (fractionalPart / 100);

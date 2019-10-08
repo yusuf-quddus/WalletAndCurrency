@@ -28,5 +28,5 @@ public:
 	Currency operator[](int);
 
 	// Destructor
-	~Wallet();
+	virtual ~Wallet();
 };
