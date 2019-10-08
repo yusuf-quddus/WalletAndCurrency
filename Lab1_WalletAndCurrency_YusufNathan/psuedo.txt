@@ -1,0 +1,27 @@
+// CIS 22C #02Y
+// Lab 1: Allows user to interact with the currencies in their wallet
+// Name: Nathan Wong and Yusuf Quddus
+
+/*
+Program Code (Pseudocode):
+Prompts user to enter in the 5 currencies that they have in their wallet.
+Prints a menu for the user to add, subtract, display, empty, or check if their wallet is empty.
+
+If the user types 1 (add):
+    Prompts the user to input the values they want to add as well as the type of currency. The program then tells
+    the user what has been added to their wallet. 
+If the user types 2 (subtract):
+    Prompts the user to input the values they want to subtract as well as the type of currency. The program then tells
+    the user what has been subtracted from their wallet. If they don't have the money in their wallet, the program will 
+    instead tell them that they do not have the necessary funds.
+If the user types 3 (display):
+    Prompts the user to what currency they would like to display. They can also display their entire wallet. After the user 
+    makes a choice, the program will print the information based on what they chose.
+If the user types 4 (empty):
+
+If the user types 5 (if empty):
+    Prompts the user to what currency they would like to check. After the user makes a choice, the program will tell the user
+    if their chosen currency is empty or not. 
+If the user types 6 (Exit):
+    The program will exit and thank the user for using the program.
+*/
